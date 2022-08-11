@@ -1,0 +1,101 @@
+body {
+  padding-top: 40px;
+  font-family: "Roboto Slab", serif;
+}
+
+.button-color {
+  background-color: #ffffff;
+}
+
+.maincard {
+  background-color: rgba(104, 225, 253, 0.3);
+  display: block;
+  margin: 0 auto;
+}
+
+.five-day {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.input-city {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.current-city-weather {
+  font-size: 25px;
+  text-align: center;
+}
+
+.current-day-time {
+  font-size: 18px;
+  text-align: center;
+}
+
+.current-weather-image {
+  margin: 0 auto;
+  display: block;
+  width: 125px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+.current-temp-col {
+  padding-top: 35px;
+}
+
+.current-temp {
+  font-size: 45px;
+  text-align: left;
+}
+
+.current-units {
+  font-size: 20px;
+  position: relative;
+  top: -22px;
+  text-align: left;
+  padding-left: 3px;
+}
+
+#f-unit, #c-unit {
+    text-decoration: none;
+}
+
+#f-unit:hover,
+#c-unit:hover {
+  text-decoration: underline;
+}
+
+.current-weather-text {
+  font-size: 18px;
+  text-align: center;
+  padding-top: 35px;
+}
+
+.five-day-day {
+  font-size: 26px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.five-day-high {
+  font-size: 26px;
+  text-align: left;
+  font-weight: bold;
+  color: #000000;
+  padding-top: 10px;
+}
+
+.five-day-low {
+  font-size: 20px;
+  text-align: right;
+  color: #000000;
+  margin-top: -10px;
+}
+.five-day-image {
+  width: 65px;
+  margin: 0 auto;
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
