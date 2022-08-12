@@ -46,7 +46,6 @@ document.querySelector(".current-day-time").innerHTML = formatDate(timeNow);
 
 //get current location name
 function getMyLocation(position) {
- // console.log(position);
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
@@ -55,7 +54,6 @@ function getMyLocation(position) {
 }
 
 function showCurrentName(currentCityName) {
-   console.log(currentCityName);
    let cityName = (currentCityName.data[0].name);
    searchCity(cityName);
 }
@@ -63,23 +61,18 @@ function showCurrentName(currentCityName) {
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-name").value;
-  //console.log(city);
   searchCity(city);
 }
 
 function searchCity(updateCity) {
-//console.log(updateCity);
 let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${updateCity}&APPID=${apiKey}&units=metric`;
 axios.get(`${apiUrl}`).then(showCurrentWeather);
 }
-///////////here
+
 function showCurrentWeather(response) {
-  //console.log(response.data.name);
-  let currentName = response.data.name;
   document.querySelector(".searched-city").innerHTML = response.data.name;
 
-  //console.log(response.data.main);
   let temperatureRounded = Math.round(response.data.main.temp);
   let temp = document.querySelector(".current-temp");
   temp.innerHTML = `${temperatureRounded}°C`;
