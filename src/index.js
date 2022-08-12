@@ -46,11 +46,12 @@ document.querySelector(".current-day-time").innerHTML = formatDate(timeNow);
 
 //get current location name
 function getMyLocation(position) {
+  console.log(position);
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
   let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
-  axios.get(`${apiUrl}`).then(showCurrentWeather);
+  axios.get(apiUrl).then(showCurrentWeather);
 }
 
 function handleSubmit(event) {
@@ -68,11 +69,9 @@ axios.get(`${apiUrl}`).then(showCurrentWeather);
 }
 
 function showCurrentWeather(response) {
-  let city = response.data.name;
-  console.log(city);
-  document.querySelector(".searched-city").innerHTML = city;
+  document.querySelector(".searched-city").innerHTML = response.data.name;
 
-  console.log(response.data.main.temp);
+  console.log(response.data.main);
   let temperatureRounded = Math.round(response.data.main.temp);
   let temp = document.querySelector(".current-temp");
   temp.innerHTML = `${temperatureRounded}°C`;
@@ -90,17 +89,8 @@ function showCurrentWeather(response) {
   currentWind.innerHTML = `Wind ${windRounded} km/h`;
 }
 
-/////////name is updated correctly when using current button
-function updateCurrentWeather(response) {
-  let city = response.data[0].name;
-  console.log(city);
-  
-  let updateCity = city;
-  let updateCurrentCity = document.querySelector(".searched-city");
-  updateCurrentCity.innerHTML = updateCity;
-}
 
-function getCurrentLocation() {
+function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(getMyLocation);
  }
@@ -114,7 +104,11 @@ cityForm.addEventListener("submit", handleSubmit);
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
+//default page search
 searchCity("Paris");
+
+
+
 
 // toggle between F and C temperatures (not needing to use math)
 
