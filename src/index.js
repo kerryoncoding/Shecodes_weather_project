@@ -44,63 +44,35 @@ let timeNow = new Date();
 document.querySelector(".current-day-time").innerHTML = formatDate(timeNow);
 
 
-// create a form where you submit city and update current weather 
-
-function showCity(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#city-name");
-  let updateCity = `${cityInput.value}`;
-  document.querySelector(".searched-city").innerHTML = updateCity;
-
-  let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${updateCity}&APPID=${apiKey}&units=metric`;
-
-  function showCurrentWeather(response) {
-  console.log(response);
-  let temperatureRounded = Math.round(response.data.main.temp);
-  document.querySelector(".current-temp").innerHTML = `${temperatureRounded}°C`;
-
-  let description = response.data.weather[0].description;
-  let currentDescription = document.querySelector("#description-now");
-  currentDescription.innerHTML = `<strong>${description}</strong>`;
-  
-  let humidity = response.data.main.humidity;
-  let currentHumidity = document.querySelector("#humidity-now");
-  currentHumidity.innerHTML = `Humidity ${humidity}%`;
-
-  let windRounded = Math.round(response.data.wind.speed);
-  let currentWind = document.querySelector("#wind-now");
-  currentWind.innerHTML = `Wind ${windRounded} km/h`;
-}
-  axios.get(`${apiUrl}`).then(showCurrentWeather);
-}
-
-
-
 //get current location name
 function getMyLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
   let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
-  axios.get(`${apiUrl}`).then(updateCurrentWeather);
+  axios.get(`${apiUrl}`).then(showCurrentWeather);
 }
 
-/////////name is updated correctly when using current button
-function updateCurrentWeather(response) {
-  let city = response.data[0].name;
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-name").value;
+  searchCity(city);
   console.log(city);
-  
+}
 
-  let updateCity = city;
-  let updateCurrentCity = document.querySelector(".searched-city");
-  updateCurrentCity.innerHTML = updateCity;
+function searchCity(updateCity) {
+console.log(updateCity);
+let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${updateCity}&APPID=${apiKey}&units=metric`;
+axios.get(`${apiUrl}`).then(showCurrentWeather);
+}
 
-  let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${updateCity}&APPID=${apiKey}&units=metric`;
+function showCurrentWeather(response) {
+  let city = response.data.name;
+  console.log(city);
+  document.querySelector(".searched-city").innerHTML = city;
 
-  function showCurrentWeather(response) {
-  console.log(response);
+  console.log(response.data.main.temp);
   let temperatureRounded = Math.round(response.data.main.temp);
   let temp = document.querySelector(".current-temp");
   temp.innerHTML = `${temperatureRounded}°C`;
@@ -117,23 +89,32 @@ function updateCurrentWeather(response) {
   let currentWind = document.querySelector("#wind-now");
   currentWind.innerHTML = `Wind ${windRounded} km/h`;
 }
-  axios.get(`${apiUrl}`).then(showCurrentWeather);
+
+/////////name is updated correctly when using current button
+function updateCurrentWeather(response) {
+  let city = response.data[0].name;
+  console.log(city);
+  
+  let updateCity = city;
+  let updateCurrentCity = document.querySelector(".searched-city");
+  updateCurrentCity.innerHTML = updateCity;
 }
 
 function getCurrentLocation() {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(getMyLocation);
-}
+ }
 
 //submit button
 let cityForm = document.querySelector(".input-city");
-cityForm.addEventListener("submit", showCity);
+cityForm.addEventListener("submit", handleSubmit);
 
 
 //current button
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
-
+searchCity("Paris");
 
 // toggle between F and C temperatures (not needing to use math)
 
