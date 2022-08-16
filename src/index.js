@@ -84,11 +84,11 @@ function showCurrentWeather(response) {
   
   let humidity = response.data.main.humidity;
   let currentHumidity = document.querySelector("#humidity-now");
-  currentHumidity.innerHTML = `Humidity ${humidity}%`;
+  currentHumidity.innerHTML = `${humidity}`;
 
   let windRounded = Math.round(response.data.wind.speed);
   let currentWind = document.querySelector("#wind-now");
-  currentWind.innerHTML = `Wind ${windRounded} km/h`;
+  currentWind.innerHTML = `${windRounded}`;
 
   let iconCode = response.data.weather[0].icon;
   document.querySelector(".current-weather-image").setAttribute("src", `images/${iconCode}.png`);
@@ -101,8 +101,7 @@ function getCurrentLocation(event) {
  }
 
 
-
- function unitsFahrenheit() {
+function unitsFahrenheit() {
     celsious.classList.remove("active");
     fahrenheit.classList.add("active");
     document.querySelector(".current-temp").innerHTML = Math.round(celsiousTemperature * 9/5) + 32;
@@ -121,9 +120,6 @@ document.querySelector("#celsious").addEventListener("click", unitsCelsious);
 let celsiousTemperature = null;
 
 
-
-
-
 //submit button
 let cityForm = document.querySelector(".input-city");
 cityForm.addEventListener("submit", handleSubmit);
@@ -131,10 +127,6 @@ cityForm.addEventListener("submit", handleSubmit);
 //current button
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentLocation);
-
-
-
-
 
 
 //default page search
