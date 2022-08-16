@@ -88,6 +88,10 @@ function showCurrentWeather(response) {
   let windRounded = Math.round(response.data.wind.speed);
   let currentWind = document.querySelector("#wind-now");
   currentWind.innerHTML = `Wind ${windRounded} km/h`;
+
+  let iconCode = response.data.weather[0].icon;
+  console.log(iconCode);
+  document.querySelector(".current-weather-image").setAttribute("src", `images/${iconCode}.png`);
 }
 
 
