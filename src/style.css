@@ -13,6 +13,7 @@ body {
   margin: 0 auto;
 }
 
+
 .five-day {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -23,7 +24,7 @@ body {
 }
 
 .current-city-weather {
-  font-size: 25px;
+  font-size: 30px;
   text-align: center;
 }
 
@@ -40,31 +41,40 @@ body {
   padding-bottom: 20px;
 }
 
+
 .current-temp-col {
+  text-align:center;
   padding-top: 35px;
 }
 
 .current-temp {
-  font-size: 45px;
+  font-size: 60px;
   text-align: left;
 }
 
 .current-units {
   font-size: 20px;
   position: relative;
-  top: -22px;
-  text-align: left;
-  padding-left: 3px;
+  top: -28px;
+  right: 10px;
+  padding-left: 5px;
 }
 
-#f-unit, #c-unit {
+.current-units .active {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  cursor: default;
+}
+
+#fahrenheit, #celsious {
     text-decoration: none;
 }
 
-#f-unit:hover,
-#c-unit:hover {
+/*#fahrenheit:hover,
+#celsious:hover {
   text-decoration: underline;
-}
+}*/
 
 .current-weather-text {
   font-size: 18px;

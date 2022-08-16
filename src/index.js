@@ -73,9 +73,10 @@ axios.get(`${apiUrl}`).then(showCurrentWeather);
 function showCurrentWeather(response) {
   document.querySelector(".searched-city").innerHTML = response.data.name;
 
-  let temperatureRounded = Math.round(response.data.main.temp);
+  celsiousTemperature = response.data.main.temp
+  let temperatureRounded = Math.round(celsiousTemperature);
   let temp = document.querySelector(".current-temp");
-  temp.innerHTML = `${temperatureRounded}°C`;
+  temp.innerHTML = `${temperatureRounded}`;
 
   let description = response.data.weather[0].description;
   let currentDescription = document.querySelector("#description-now");
@@ -90,7 +91,6 @@ function showCurrentWeather(response) {
   currentWind.innerHTML = `Wind ${windRounded} km/h`;
 
   let iconCode = response.data.weather[0].icon;
-  console.log(iconCode);
   document.querySelector(".current-weather-image").setAttribute("src", `images/${iconCode}.png`);
 }
 
@@ -100,6 +100,30 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(getMyLocation);
  }
 
+
+
+ function unitsFahrenheit() {
+    celsious.classList.remove("active");
+    fahrenheit.classList.add("active");
+    document.querySelector(".current-temp").innerHTML = Math.round(celsiousTemperature * 9/5) + 32;
+}
+
+function unitsCelsious() {
+    celsious.classList.add("active");
+    fahrenheit.classList.remove("active");
+    document.querySelector(".current-temp").innerHTML = Math.round(celsiousTemperature);
+}
+
+document.querySelector("#fahrenheit").addEventListener("click", unitsFahrenheit);
+
+document.querySelector("#celsious").addEventListener("click", unitsCelsious);
+
+let celsiousTemperature = null;
+
+
+
+
+
 //submit button
 let cityForm = document.querySelector(".input-city");
 cityForm.addEventListener("submit", handleSubmit);
@@ -108,8 +132,17 @@ cityForm.addEventListener("submit", handleSubmit);
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
+
+
+
+
+
 //default page search
 searchCity("Paris");
+
+
+
+
 
 
 
