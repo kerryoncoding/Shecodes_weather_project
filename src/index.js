@@ -113,6 +113,27 @@ function unitsCelsious() {
     document.querySelector(".current-temp").innerHTML = Math.round(celsiousTemperature);
 }
 
+let forecastElement = document.querySelector("#forecast");
+let forecastElement.innerHTML = 
+`<div class = "card-future" id="forecast">
+                <div class="col-2">
+                  <div class="card" style="width: 7rem">
+                    <div class="card-body">
+                      <div class="five-day-day">SAT</div>
+                      <div class="five-day-high">76°F</div>
+                      <div class="five-day-low">/68°F</div>
+                      <img
+                        src="images/mostly_sunny.png"
+                        alt="mostly sunny"
+                        class="five-day-image"
+                      />
+                    </div>
+                  </div>
+                </div>
+                </div>`;
+
+
+
 document.querySelector("#fahrenheit").addEventListener("click", unitsFahrenheit);
 
 document.querySelector("#celsious").addEventListener("click", unitsCelsious);
