@@ -45,18 +45,18 @@ document.querySelector(".current-day-time").innerHTML = formatDate(timeNow);
 
 
 //get current location name
-function getMyLocation(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
-  let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
-  axios.get(apiUrl).then(showCurrentName);
-}
+//function getMyLocation(position) {
+//  let latitude = position.coords.latitude;
+//  let longitude = position.coords.longitude;
+//  let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
+//  let apiUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+//  axios.get(apiUrl).then(showCurrentName);
+//}
 
-function showCurrentName(currentCityName) {
-   let cityName = (currentCityName.data[0].name);
-   searchCity(cityName);
-}
+//function showCurrentName(currentCityName) {
+//   let cityName = (currentCityName.data[0].name);
+//   searchCity(cityName);
+//}
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -95,10 +95,10 @@ function showCurrentWeather(response) {
 }
 
 
-function getCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(getMyLocation);
- }
+//function getCurrentLocation(event) {
+//  event.preventDefault();
+//  navigator.geolocation.getCurrentPosition(getMyLocation);
+// }
 
 
 function unitsFahrenheit() {
@@ -114,7 +114,7 @@ function unitsCelsious() {
 }
 
 let forecastElement = document.querySelector("#forecast");
-let forecastElement.innerHTML = 
+forecastElement.innerHTML = 
 `<div class = "card-future" id="forecast">
                 <div class="col-2">
                   <div class="card" style="width: 7rem">
@@ -146,12 +146,12 @@ let cityForm = document.querySelector(".input-city");
 cityForm.addEventListener("submit", handleSubmit);
 
 //current button
-let currentButton = document.querySelector("#current-button");
-currentButton.addEventListener("click", getCurrentLocation);
+//let currentButton = document.querySelector("#current-button");
+//currentButton.addEventListener("click", getCurrentLocation);
 
 
 //default page search
-searchCity("Paris");
+searchCity("New York");
 
 
 
