@@ -142,13 +142,13 @@ function displayForecast(response) {
         <div class="card" style="width: 7rem">
            <div class="card-body future-card">
              <div class="future-day">${formatFutureDate(futureDay.dt)}</div>
-             <div><span class="future-high">76°</span>
-                <span class="future-low">/68°</span></div>
                   <img
                     src="images/${futureDay.weather[0].icon}.png"
                     alt="weather image"
                     class="future-image"
                   />
+                <div><span class="future-high">76°</span>
+                <span class="future-low">/68°</span></div>
             </div>
          </div>
       </div>`;
