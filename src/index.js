@@ -40,6 +40,7 @@ function formatDate(date) {
 
 function handleSubmit(event) {
   event.preventDefault();
+  forecastUnits="metric";
   celsious.classList.add("active");
   fahrenheit.classList.remove("active");
   let city = document.querySelector("#input-city-name").value;
@@ -95,7 +96,7 @@ function unitsCelsious() {
   fahrenheit.classList.remove("active");
   document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature);
   forecastUnits = "metric";
-    getForecast(coordinatesInfo);
+  getForecast(coordinatesInfo);
 }
 
 function formatFutureDate(timestamp) {
