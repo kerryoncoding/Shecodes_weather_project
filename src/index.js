@@ -123,34 +123,39 @@ function unitsCelsious() {
     document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature);
 }
 
+function formatFutureDate(timestamp) {
+    let futureDate = new Date(timestamp * 1000);
+    let futureDay = futureDate.getDay();
+    let futureDayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    return futureDayNames[futureDay];
+}
 
 function displayForecast(response) {
-console.log(response);
-let forecastElement = document.querySelector("#forecast");
-let forecastHTML = `<div class="row">`;
+  console.log(response);
+  let futureDates = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
 
-let daysabbrev = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+  futureDates.forEach(function(futureDay) {
+  forecastHTML = forecastHTML +
+    `<div class="col-2 card-spacing">
+        <div class="card" style="width: 7rem">
+           <div class="card-body future-card">
+             <div class="future-day">${formatFutureDate(futureDay.dt)}</div>
+             <div><span class="future-high">76°</span>
+                <span class="future-low">/68°</span></div>
+                  <img
+                    src="images/04d.png"
+                    alt="weather image"
+                    class="future-image"
+                  />
+            </div>
+         </div>
+      </div>`;
+  })
 
-daysabbrev.forEach(function(day) {
-forecastHTML = forecastHTML +
-  `<div class="col-2 card-spacing">
-      <div class="card" style="width: 7rem">
-         <div class="card-body future-card">
-           <div class="future-day">SAT</div>
-           <div><span class="future-high">76°</span>
-              <span class="future-low">/68°</span></div>
-                <img
-                  src="images/04d.png"
-                  alt="weather image"
-                  class="future-image"
-                />
-          </div>
-       </div>
-    </div>`;
-})
-
-forecastHTML = forecastHTML + `</div>`;
-forecastElement.innerHTML = forecastHTML;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 
