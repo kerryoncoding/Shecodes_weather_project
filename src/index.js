@@ -114,9 +114,12 @@ function unitsCelsious() {
 }
 
 let forecastElement = document.querySelector("#forecast");
-
 let forecastHTML = `<div class="row">`;
 
+let daysabbrev = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+
+
+daysabbrev.forEach(function(day) {
 forecastHTML = forecastHTML +
   `<div class="col-2 card-spacing">
       <div class="card" style="width: 7rem">
@@ -132,69 +135,7 @@ forecastHTML = forecastHTML +
           </div>
        </div>
     </div>`;
-
-  forecastHTML = forecastHTML +
-  `<div class="col-2 card-spacing">
-      <div class="card" style="width: 7rem">
-         <div class="card-body future-card">
-           <div class="future-day">SAT</div>
-           <div><span class="future-high">76°</span>
-              <span class="future-low">/68°</span></div>
-                <img
-                  src="images/04d.png"
-                  alt="weather image"
-                  class="future-image"
-                />
-          </div>
-       </div>
-    </div>`;
-
-  forecastHTML = forecastHTML +
-  `<div class="col-2 card-spacing">
-      <div class="card" style="width: 7rem">
-         <div class="card-body future-card">
-           <div class="future-day">SAT</div>
-           <div><span class="future-high">76°</span>
-              <span class="future-low">/68°</span></div>
-                <img
-                  src="images/04d.png"
-                  alt="weather image"
-                  class="future-image"
-                />
-          </div>
-       </div>
-    </div>`;
-      forecastHTML = forecastHTML +
-  `<div class="col-2 card-spacing">
-      <div class="card" style="width: 7rem">
-         <div class="card-body future-card">
-           <div class="future-day">SAT</div>
-           <div><span class="future-high">76°</span>
-              <span class="future-low">/68°</span></div>
-                <img
-                  src="images/04d.png"
-                  alt="weather image"
-                  class="future-image"
-                />
-          </div>
-       </div>
-    </div>`;
-
-      forecastHTML = forecastHTML +
-  `<div class="col-2 card-spacing">
-      <div class="card" style="width: 7rem">
-         <div class="card-body future-card">
-           <div class="future-day">SAT</div>
-           <div><span class="future-high">76°</span>
-              <span class="future-low">/68°</span></div>
-                <img
-                  src="images/04d.png"
-                  alt="weather image"
-                  class="future-image"
-                />
-          </div>
-       </div>
-    </div>`;
+})
 
 forecastHTML = forecastHTML + `</div>`;
 
