@@ -114,23 +114,92 @@ function unitsCelsious() {
 }
 
 let forecastElement = document.querySelector("#forecast");
-forecastElement.innerHTML = 
-`<div class = "card-future" id="forecast">
-                <div class="col-2">
-                  <div class="card" style="width: 7rem">
-                    <div class="card-body future-card">
-                      <div class="future-day">SAT</div>
-                      <div><span class="future-high">76°</span>
-                      <span class="future-low">/68°</span></div>
-                      <img
-                        src="images/04d.png"
-                        alt="weather image"
-                        class="future-image"
-                      />
-                    </div>
-                  </div>
-                </div>
-                </div>`;
+
+let forecastHTML = `<div class="row">`;
+
+forecastHTML = forecastHTML +
+  `<div class="col-2">
+      <div class="card" style="width: 7rem">
+         <div class="card-body future-card">
+           <div class="future-day">SAT</div>
+           <div><span class="future-high">76°</span>
+              <span class="future-low">/68°</span></div>
+                <img
+                  src="images/04d.png"
+                  alt="weather image"
+                  class="future-image"
+                />
+          </div>
+       </div>
+    </div>`;
+
+  forecastHTML = forecastHTML +
+  `<div class="col-2">
+      <div class="card" style="width: 7rem">
+         <div class="card-body future-card">
+           <div class="future-day">SAT</div>
+           <div><span class="future-high">76°</span>
+              <span class="future-low">/68°</span></div>
+                <img
+                  src="images/04d.png"
+                  alt="weather image"
+                  class="future-image"
+                />
+          </div>
+       </div>
+    </div>`;
+
+  forecastHTML = forecastHTML +
+  `<div class="col-2">
+      <div class="card" style="width: 7rem">
+         <div class="card-body future-card">
+           <div class="future-day">SAT</div>
+           <div><span class="future-high">76°</span>
+              <span class="future-low">/68°</span></div>
+                <img
+                  src="images/04d.png"
+                  alt="weather image"
+                  class="future-image"
+                />
+          </div>
+       </div>
+    </div>`;
+      forecastHTML = forecastHTML +
+  `<div class="col-2">
+      <div class="card" style="width: 7rem">
+         <div class="card-body future-card">
+           <div class="future-day">SAT</div>
+           <div><span class="future-high">76°</span>
+              <span class="future-low">/68°</span></div>
+                <img
+                  src="images/04d.png"
+                  alt="weather image"
+                  class="future-image"
+                />
+          </div>
+       </div>
+    </div>`;
+
+      forecastHTML = forecastHTML +
+  `<div class="col-2">
+      <div class="card" style="width: 7rem">
+         <div class="card-body future-card">
+           <div class="future-day">SAT</div>
+           <div><span class="future-high">76°</span>
+              <span class="future-low">/68°</span></div>
+                <img
+                  src="images/04d.png"
+                  alt="weather image"
+                  class="future-image"
+                />
+          </div>
+       </div>
+    </div>`;
+
+forecastHTML = forecastHTML + `</div>`;
+
+forecastElement.innerHTML = forecastHTML;
+
 
 
 
