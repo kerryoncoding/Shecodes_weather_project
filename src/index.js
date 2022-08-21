@@ -118,7 +118,7 @@ let forecastElement = document.querySelector("#forecast");
 let forecastHTML = `<div class="row">`;
 
 forecastHTML = forecastHTML +
-  `<div class="col-2">
+  `<div class="col-2 card-spacing">
       <div class="card" style="width: 7rem">
          <div class="card-body future-card">
            <div class="future-day">SAT</div>
@@ -134,7 +134,7 @@ forecastHTML = forecastHTML +
     </div>`;
 
   forecastHTML = forecastHTML +
-  `<div class="col-2">
+  `<div class="col-2 card-spacing">
       <div class="card" style="width: 7rem">
          <div class="card-body future-card">
            <div class="future-day">SAT</div>
@@ -150,7 +150,7 @@ forecastHTML = forecastHTML +
     </div>`;
 
   forecastHTML = forecastHTML +
-  `<div class="col-2">
+  `<div class="col-2 card-spacing">
       <div class="card" style="width: 7rem">
          <div class="card-body future-card">
            <div class="future-day">SAT</div>
@@ -165,7 +165,7 @@ forecastHTML = forecastHTML +
        </div>
     </div>`;
       forecastHTML = forecastHTML +
-  `<div class="col-2">
+  `<div class="col-2 card-spacing">
       <div class="card" style="width: 7rem">
          <div class="card-body future-card">
            <div class="future-day">SAT</div>
@@ -181,7 +181,7 @@ forecastHTML = forecastHTML +
     </div>`;
 
       forecastHTML = forecastHTML +
-  `<div class="col-2">
+  `<div class="col-2 card-spacing">
       <div class="card" style="width: 7rem">
          <div class="card-body future-card">
            <div class="future-day">SAT</div>
