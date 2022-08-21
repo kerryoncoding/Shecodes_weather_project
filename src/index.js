@@ -65,9 +65,16 @@ function handleSubmit(event) {
 }
 
 function searchCity(updateCity) {
-let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${updateCity}&APPID=${apiKey}&units=metric`;
-axios.get(`${apiUrl}`).then(showCurrentWeather);
+  let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${updateCity}&APPID=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(showCurrentWeather);
+}
+
+function getForecast(coordinates) {
+ let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
+ let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+ axios.get(`${apiUrl}`).then(displayForecast);
+
 }
 
 function showCurrentWeather(response) {
@@ -92,6 +99,9 @@ function showCurrentWeather(response) {
 
   let iconCode = response.data.weather[0].icon;
   document.querySelector(".current-weather-image").setAttribute("src", `images/${iconCode}.png`);
+
+  getForecast(response.data.coord);
+  
 }
 
 
@@ -113,11 +123,13 @@ function unitsCelsious() {
     document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature);
 }
 
+
+function displayForecast(response) {
+console.log(response);
 let forecastElement = document.querySelector("#forecast");
 let forecastHTML = `<div class="row">`;
 
 let daysabbrev = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
-
 
 daysabbrev.forEach(function(day) {
 forecastHTML = forecastHTML +
@@ -138,10 +150,8 @@ forecastHTML = forecastHTML +
 })
 
 forecastHTML = forecastHTML + `</div>`;
-
 forecastElement.innerHTML = forecastHTML;
-
-
+}
 
 
 document.querySelector("#fahrenheit").addEventListener("click", unitsFahrenheit);
