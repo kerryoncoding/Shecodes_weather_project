@@ -145,7 +145,7 @@ function displayForecast(response) {
              <div><span class="future-high">76°</span>
                 <span class="future-low">/68°</span></div>
                   <img
-                    src="images/04d.png"
+                    src="images/${futureDay.weather[0].icon}.png"
                     alt="weather image"
                     class="future-image"
                   />
