@@ -37,7 +37,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    id="city-name"
+                    id="input-city-name"
                     placeholder="Enter a city"
                   />
                 </div>
@@ -45,7 +45,7 @@
               <div class="col-3">
                 <button
                   type="button"
-                  class="btn btn-outline-secondary button-color"
+                  class="btn btn-outline-secondary input-button"
                 >
                   Enter
                 </button>
@@ -61,12 +61,12 @@
           </form>
           <!--  current city down -->
 
-          <form class="current-weather-card">
+          <form class="current-weather-section">
             <div class="row">
               <div class="col-1"></div>
               <div class="col-4">
                 <div class="current-city-weather">
-                  <strong class="searched-city"><!---placeholdercity--></strong>
+                  <strong class="current-city-name"><!---placeholdercity--></strong>
                   <div class="current-day-time">
                     <!-- THURSDAY 1:00 PM PLACEHOLDER -->
                   </div>
@@ -78,14 +78,14 @@
               <div class="col-1"></div>
               <div class="col-4">
                 <img
-                  src="images/mostly_sunny.png"
+                  src="images/02d.png"
                   alt="mostly sunny"
                   class="current-weather-image"
                 />
               </div>
               <div class="col-3">
-                <div class="current-temp-col">
-                  <span class="current-temp">25</span>
+                <div class="current-temperature">
+                  <span class="current-temperature-value">25</span>
                   <span class="current-units">
                     <a href="#" id="celsious" class="active">°C</a>|<a href="#" id="fahrenheit"
                       >°F</a
@@ -94,10 +94,10 @@
                 </div>
               </div>
               <div class="col-3">
-                <div class="current-weather-text">
-                  <div id="description-now">
+                <div class="current-weather-description">
+                  <div id="current-description">
                   <strong><!--Mostly Sunny--></strong></div>
-                  <div>Humidity: <span id="humidity-now">71</span>%</div><div>Wind: <span id="wind-now">8</span> mph
+                  <div>Humidity: <span id="current-humidity">71</span>%</div><div>Wind: <span id="wind-now">8</span> mph
                 </div>
               </div>
               <!--<div class="col-1"></div>-->
@@ -117,8 +117,8 @@
                       <div class="five-day-high">76°F</div>
                       <div class="five-day-low">/68°F</div>
                       <img
-                        src="images/mostly_sunny.png"
-                        alt="mostly sunny"
+                        src="images/02d.png"
+                        alt="weather image"
                         class="five-day-image"
                       />
                     </div>

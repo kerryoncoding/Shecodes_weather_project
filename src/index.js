@@ -60,7 +60,7 @@ document.querySelector(".current-day-time").innerHTML = formatDate(timeNow);
 
 function handleSubmit(event) {
   event.preventDefault();
-  let city = document.querySelector("#city-name").value;
+  let city = document.querySelector("#input-city-name").value;
   searchCity(city);
 }
 
@@ -71,19 +71,19 @@ axios.get(`${apiUrl}`).then(showCurrentWeather);
 }
 
 function showCurrentWeather(response) {
-  document.querySelector(".searched-city").innerHTML = response.data.name;
+  document.querySelector(".current-city-name").innerHTML = response.data.name;
 
   celsiousTemperature = response.data.main.temp
   let temperatureRounded = Math.round(celsiousTemperature);
-  let temp = document.querySelector(".current-temp");
+  let temp = document.querySelector(".current-temperature-value");
   temp.innerHTML = `${temperatureRounded}`;
 
   let description = response.data.weather[0].description;
-  let currentDescription = document.querySelector("#description-now");
+  let currentDescription = document.querySelector("#current-description");
   currentDescription.innerHTML = `<strong>${description}</strong>`;
   
   let humidity = response.data.main.humidity;
-  let currentHumidity = document.querySelector("#humidity-now");
+  let currentHumidity = document.querySelector("#current-humidity");
   currentHumidity.innerHTML = `${humidity}`;
 
   let windRounded = Math.round(response.data.wind.speed);
@@ -104,13 +104,13 @@ function showCurrentWeather(response) {
 function unitsFahrenheit() {
     celsious.classList.remove("active");
     fahrenheit.classList.add("active");
-    document.querySelector(".current-temp").innerHTML = Math.round(celsiousTemperature * 9/5) + 32;
+    document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature * 9/5) + 32;
 }
 
 function unitsCelsious() {
     celsious.classList.add("active");
     fahrenheit.classList.remove("active");
-    document.querySelector(".current-temp").innerHTML = Math.round(celsiousTemperature);
+    document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature);
 }
 
 let forecastElement = document.querySelector("#forecast");
@@ -120,11 +120,11 @@ forecastElement.innerHTML =
                   <div class="card" style="width: 7rem">
                     <div class="card-body">
                       <div class="five-day-day">SAT</div>
-                      <div class="five-day-high">76°F</div>
-                      <div class="five-day-low">/68°F</div>
+                      <div class="five-day-high">76°</div>
+                      <div class="five-day-low">/ 68°</div>
                       <img
-                        src="images/mostly_sunny.png"
-                        alt="mostly sunny"
+                        src="images/04d.png"
+                        alt="weather image"
                         class="five-day-image"
                       />
                     </div>
@@ -167,7 +167,7 @@ searchCity("New York");
 //  updateToF.innerHTML = "<strong>°F</strong>";
 //  let updateToC = document.querySelector("#c-unit");
 //  updateToC.innerHTML = "°C"
-//  let convertTemp = document.querySelector(".current-temp");
+//  let convertTemp = document.querySelector(".current-temperature-value");
 //  convertTemp.innerHTML = "76";
 //}
 
@@ -176,7 +176,7 @@ searchCity("New York");
 //  updateToC.innerHTML = "<strong>°C</strong>";
 //  let updateToF = document.querySelector("#f-unit");
 //  updateToF.innerHTML = "°F"
-//    let convertTemp = document.querySelector(".current-temp");
+//    let convertTemp = document.querySelector(".current-temperature-value");
 //  convertTemp.innerHTML = "24";
 //}
 

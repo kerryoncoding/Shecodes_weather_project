@@ -3,8 +3,11 @@ body {
   font-family: "Roboto Slab", serif;
 }
 
-.button-color {
+.input-button {
   background-color: #ffffff;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-left: 5px;
 }
 
 .maincard {
@@ -42,12 +45,12 @@ body {
 }
 
 
-.current-temp-col {
+.current-temperature {
   text-align:center;
   padding-top: 35px;
 }
 
-.current-temp {
+.current-temperature-value {
   font-size: 60px;
   text-align: left;
 }
@@ -76,7 +79,7 @@ body {
   text-decoration: underline;
 }*/
 
-.current-weather-text {
+.current-weather-description {
   font-size: 18px;
   text-align: center;
   padding-top: 35px;
