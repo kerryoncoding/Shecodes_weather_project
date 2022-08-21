@@ -131,29 +131,30 @@ function formatFutureDate(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response);
   let futureDates = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
 
-  futureDates.forEach(function(futureDay) {
-  forecastHTML = forecastHTML +
-    `<div class="col-2 card-spacing">
-        <div class="card" style="width: 7rem">
-           <div class="card-body future-card">
-             <div class="future-day">${formatFutureDate(futureDay.dt)}</div>
-                  <img
-                    src="images/${futureDay.weather[0].icon}.png"
-                    alt="weather image"
-                    class="future-image"
-                  />
-                <div><span class="future-high">${Math.round(futureDay.temp.max)}°</span>
-                <span class="future-low">/${Math.round(futureDay.temp.min)}°</span></div>
-            </div>
-         </div>
-      </div>`;
+  futureDates.forEach(function(futureDay, index) {
+    if (index < 5) { 
+      forecastHTML = forecastHTML +
+           `<div class="col-2 card-spacing">
+              <div class="card" style="width: 7rem">
+                <div class="card-body future-card">
+                  <div class="future-day">${formatFutureDate(futureDay.dt)}</div>
+                        <img
+                          src="images/${futureDay.weather[0].icon}.png"
+                          alt="weather image"
+                          class="future-image"
+                        />
+                      <div><span class="future-high">${Math.round(futureDay.temp.max)}°</span>
+                      <span class="future-low">/${Math.round(futureDay.temp.min)}°</span></div>
+                  </div>
+              </div>
+            </div>`;
+    }
   })
-
+  
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
