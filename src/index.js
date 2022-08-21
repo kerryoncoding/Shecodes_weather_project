@@ -147,8 +147,8 @@ function displayForecast(response) {
                     alt="weather image"
                     class="future-image"
                   />
-                <div><span class="future-high">76°</span>
-                <span class="future-low">/68°</span></div>
+                <div><span class="future-high">${Math.round(futureDay.temp.max)}°</span>
+                <span class="future-low">/${Math.round(futureDay.temp.min)}°</span></div>
             </div>
          </div>
       </div>`;
