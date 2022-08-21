@@ -50,7 +50,7 @@ function handleSubmit(event) {
 
 function getForecast(coordinates) {
  let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
- let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+ let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${forecastUnits}`;
  axios.get(`${apiUrl}`).then(displayForecast);
 
 }
@@ -77,8 +77,8 @@ function showCurrentWeather(response) {
 
   let iconCode = response.data.weather[0].icon;
   document.querySelector(".current-weather-image").setAttribute("src", `images/${iconCode}.png`);
-
-  getForecast(response.data.coord); 
+  coordinatesInfo = response.data.coord;
+  getForecast(coordinatesInfo); 
 }
 
 
@@ -86,14 +86,16 @@ function unitsFahrenheit() {
     celsious.classList.remove("active");
     fahrenheit.classList.add("active");
     document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature * 9/5) + 32;
-    document.querySelector(".#forecast").innerHTML = Math.round(futureCelsiousTemperatureMax * 9/5) + 32;
-    document.querySelector(".#forecast").innerHTML = Math.round(futureCelsiousTemperatureMin * 9/5) + 32;
+    forecastUnits = "imperial";
+    getForecast(coordinatesInfo);
 }
 
 function unitsCelsious() {
   celsious.classList.add("active");
   fahrenheit.classList.remove("active");
   document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature);
+  forecastUnits = "metric";
+    getForecast(coordinatesInfo);
 }
 
 function formatFutureDate(timestamp) {
@@ -111,9 +113,6 @@ function displayForecast(response) {
 
   futureDates.forEach(function(futureDay, index) {
     if (index < 5) { 
-      let futureCelsiousTemperatureMax = futureDay.temp.max;
-      let futureCelsiousTemperatureMin = futureDay.temp.min; 
-
       forecastHTML = forecastHTML +
            `<div class="col-2 card-spacing">
               <div class="card" style="width: 7rem">
@@ -124,8 +123,8 @@ function displayForecast(response) {
                           alt="weather image"
                           class="future-image"
                         />
-                      <div><span class="future-high">${Math.round(futureCelsiousTemperatureMax)}°</span>
-                      <span class="future-low">/${Math.round(futureCelsiousTemperatureMin)}°</span></div>
+                      <div><span class="future-high">${Math.round(futureDay.temp.max)}°</span>
+                      <span class="future-low">/${Math.round(futureDay.temp.min)}°</span></div>
                   </div>
               </div>
             </div>`;
@@ -142,16 +141,16 @@ document.querySelector("#fahrenheit").addEventListener("click", unitsFahrenheit)
 document.querySelector("#celsious").addEventListener("click", unitsCelsious);
 
 let celsiousTemperature = null;
+let coordinatesInfo = null;
+let forecastUnits = "metric";
 
 let city = "New York";
 document.querySelector(".input-city").addEventListener("submit", handleSubmit);
-
 
 let timeNow = new Date();
 document.querySelector(".current-day-time").innerHTML = formatDate(timeNow);
 
 //submit button
-
 
 let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=metric`;
