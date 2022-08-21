@@ -1,5 +1,5 @@
 
-// have current day and time be displayed when page loads
+// using current day and time when page loads 
 
 function formatDate(date) {
   //Day of week
@@ -35,7 +35,6 @@ function formatDate(date) {
   }
   }
 }
-
 
 
 function handleSubmit(event) {
@@ -150,8 +149,6 @@ document.querySelector(".input-city").addEventListener("submit", handleSubmit);
 
 let timeNow = new Date();
 document.querySelector(".current-day-time").innerHTML = formatDate(timeNow);
-
-//submit button
 
 let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=metric`;

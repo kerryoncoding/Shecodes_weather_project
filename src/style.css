@@ -16,7 +16,6 @@ body {
   margin: 0 auto;
 }
 
-
 .future-weather-section {
   padding: 30px;
 }
@@ -74,11 +73,6 @@ body {
     text-decoration: none;
 }
 
-/*#fahrenheit:hover,
-#celsious:hover {
-  text-decoration: underline;
-}*/
-
 .current-weather-description {
   font-size: 18px;
   text-align: center;
@@ -99,7 +93,6 @@ body {
   text-align: left;
   font-weight: bold;
   color: #000000;
-  /*adding-top: 10px;*/
 }
 
 .future-low {
@@ -107,7 +100,6 @@ body {
   text-align: right;
   opacity: 0.5;
   color: #000000;
-  /*margin-top: -10px;*/
 }
 .future-image {
   width: 65px;
