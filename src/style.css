@@ -17,7 +17,7 @@ body {
 }
 
 
-.five-day {
+.future-weather-section {
   padding-top: 30px;
   padding-bottom: 30px;
 }
@@ -85,27 +85,31 @@ body {
   padding-top: 35px;
 }
 
-.five-day-day {
+.future-day {
   font-size: 26px;
   font-weight: normal;
   text-align: center;
 }
+.future-card {
+  text-align: center;
+}
 
-.five-day-high {
-  font-size: 26px;
+.future-high {
+  font-size: 20px;
   text-align: left;
   font-weight: bold;
   color: #000000;
-  padding-top: 10px;
+  /*adding-top: 10px;*/
 }
 
-.five-day-low {
+.future-low {
   font-size: 20px;
   text-align: right;
+  opacity: 0.5;
   color: #000000;
-  margin-top: -10px;
+  /*margin-top: -10px;*/
 }
-.five-day-image {
+.future-image {
   width: 65px;
   margin: 0 auto;
   display: block;

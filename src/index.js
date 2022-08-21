@@ -87,7 +87,7 @@ function showCurrentWeather(response) {
   currentHumidity.innerHTML = `${humidity}`;
 
   let windRounded = Math.round(response.data.wind.speed);
-  let currentWind = document.querySelector("#wind-now");
+  let currentWind = document.querySelector("#current-wind");
   currentWind.innerHTML = `${windRounded}`;
 
   let iconCode = response.data.weather[0].icon;
@@ -118,14 +118,14 @@ forecastElement.innerHTML =
 `<div class = "card-future" id="forecast">
                 <div class="col-2">
                   <div class="card" style="width: 7rem">
-                    <div class="card-body">
-                      <div class="five-day-day">SAT</div>
-                      <div class="five-day-high">76°</div>
-                      <div class="five-day-low">/ 68°</div>
+                    <div class="card-body future-card">
+                      <div class="future-day">SAT</div>
+                      <div><span class="future-high">76°</span>
+                      <span class="future-low">/68°</span></div>
                       <img
                         src="images/04d.png"
                         alt="weather image"
-                        class="five-day-image"
+                        class="future-image"
                       />
                     </div>
                   </div>
