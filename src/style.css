@@ -73,6 +73,11 @@ body {
     text-decoration: none;
 }
 
+#current-description{
+  text-transform: capitalize;
+}
+
+
 .current-weather-description {
   font-size: 18px;
   text-align: center;
