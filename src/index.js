@@ -56,24 +56,33 @@ function getForecast(coordinates) {
 }
 
 function showCurrentWeather(response) {
-  document.querySelector(".current-city-name").innerHTML = response.data.name;
+  //document.querySelector(".current-city-name").innerHTML = response.data.name;
+  document.querySelector(".current-city-name").innerText = response.data.name;
 
   celsiousTemperature = response.data.main.temp
   let temperatureRounded = Math.round(celsiousTemperature);
   let temp = document.querySelector(".current-temperature-value");
-  temp.innerHTML = `${temperatureRounded}`;
+  //temp.innerHTML = `${temperatureRounded}`;
+  temp.innerText = `${temperatureRounded}`;
+
 
   let description = response.data.weather[0].description;
+
+
+
   let currentDescription = document.querySelector("#current-description");
-  currentDescription.innerHTML = `<strong>${description}</strong>`;
+  //currentDescription.innerHTML = `<strong>${description}</strong>`;
+  currentDescription.innerText = `${description}`;
   
   let humidity = response.data.main.humidity;
   let currentHumidity = document.querySelector("#current-humidity");
-  currentHumidity.innerHTML = `${humidity}`;
+  //currentHumidity.innerHTML = `${humidity}`;
+  currentHumidity.innerText = `${humidity}`;
 
   let windRounded = Math.round(response.data.wind.speed);
   let currentWind = document.querySelector("#current-wind");
-  currentWind.innerHTML = `${windRounded}`;
+  //currentWind.innerHTML = `${windRounded}`;
+  currentWind.innerText = `${windRounded}`;
 
   let iconCode = response.data.weather[0].icon;
   document.querySelector(".current-weather-image").setAttribute("src", `images/${iconCode}.png`);
@@ -85,7 +94,8 @@ function showCurrentWeather(response) {
 function unitsFahrenheit() {
     celsious.classList.remove("active");
     fahrenheit.classList.add("active");
-    document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature * 9/5) + 32;
+    //document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature * 9/5) + 32;
+    document.querySelector(".current-temperature-value").innerText = Math.round(celsiousTemperature * 9/5) + 32;
     forecastUnits = "imperial";
     getForecast(coordinatesInfo);
 }
@@ -93,7 +103,8 @@ function unitsFahrenheit() {
 function unitsCelsious() {
   celsious.classList.add("active");
   fahrenheit.classList.remove("active");
-  document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature);
+  //document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature);
+  document.querySelector(".current-temperature-value").innerText = Math.round(celsiousTemperature);
   forecastUnits = "metric";
   getForecast(coordinatesInfo);
 }
@@ -133,6 +144,8 @@ function displayForecast(response) {
   
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+//need to update here ******^^^^^^^^^^******
+
 }
 
 
@@ -148,7 +161,8 @@ let city = "New York";
 document.querySelector(".input-city").addEventListener("submit", handleSubmit);
 
 let timeNow = new Date();
-document.querySelector(".current-day-time").innerHTML = formatDate(timeNow);
+//document.querySelector(".current-day-time").innerHTML = formatDate(timeNow);
+document.querySelector(".current-day-time").innerText = formatDate(timeNow);
 
 let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=metric`;
