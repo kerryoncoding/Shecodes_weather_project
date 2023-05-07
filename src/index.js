@@ -120,23 +120,22 @@ function displayForecast(response) {
     if (index < 5) { 
       // ** added conditional here ** //
       if ((typeof(futureDay.dt) === "number") && (typeof(futureDay.temp.max) === "number") && (typeof(futureDay.temp.min) === "number"))  {
-
-      forecastHTML = forecastHTML +
-           `<div class="col-2 card-spacing">
-              <div class="card" style="width: 7rem">
-                <div class="card-body future-card">
-                  <div class="future-day">${formatFutureDate(futureDay.dt)}</div>
-                        <img
-                          src="images/${futureDay.weather[0].icon}.png"
-                          alt="weather image"
-                          class="future-image"
-                        />
-                      <div><span class="future-high">${Math.round(futureDay.temp.max)}°</span>
-                      <span class="future-low">/${Math.round(futureDay.temp.min)}°</span></div>
-                  </div>
-              </div>
-            </div>`;
-    }
+        forecastHTML = forecastHTML +
+            `<div class="col-2 card-spacing">
+                <div class="card" style="width: 7rem">
+                  <div class="card-body future-card">
+                    <div class="future-day">${formatFutureDate(futureDay.dt)}</div>
+                          <img
+                            src="images/${futureDay.weather[0].icon}.png"
+                            alt="weather image"
+                            class="future-image"
+                          />
+                        <div><span class="future-high">${Math.round(futureDay.temp.max)}°</span>
+                        <span class="future-low">/${Math.round(futureDay.temp.min)}°</span></div>
+                    </div>
+                </div>
+              </div>`;
+      }
     }
   })
 
