@@ -56,13 +56,11 @@ function getForecast(coordinates) {
 }
 
 function showCurrentWeather(response) {
-  //document.querySelector(".current-city-name").innerHTML = response.data.name;
   document.querySelector(".current-city-name").innerText = response.data.name;
 
   celsiousTemperature = response.data.main.temp
   let temperatureRounded = Math.round(celsiousTemperature);
   let temp = document.querySelector(".current-temperature-value");
-  //temp.innerHTML = `${temperatureRounded}`;
   temp.innerText = `${temperatureRounded}`;
 
 
@@ -76,12 +74,10 @@ function showCurrentWeather(response) {
   
   let humidity = response.data.main.humidity;
   let currentHumidity = document.querySelector("#current-humidity");
-  //currentHumidity.innerHTML = `${humidity}`;
   currentHumidity.innerText = `${humidity}`;
 
   let windRounded = Math.round(response.data.wind.speed);
   let currentWind = document.querySelector("#current-wind");
-  //currentWind.innerHTML = `${windRounded}`;
   currentWind.innerText = `${windRounded}`;
 
   let iconCode = response.data.weather[0].icon;
@@ -94,7 +90,6 @@ function showCurrentWeather(response) {
 function unitsFahrenheit() {
     celsious.classList.remove("active");
     fahrenheit.classList.add("active");
-    //document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature * 9/5) + 32;
     document.querySelector(".current-temperature-value").innerText = Math.round(celsiousTemperature * 9/5) + 32;
     forecastUnits = "imperial";
     getForecast(coordinatesInfo);
@@ -103,7 +98,6 @@ function unitsFahrenheit() {
 function unitsCelsious() {
   celsious.classList.add("active");
   fahrenheit.classList.remove("active");
-  //document.querySelector(".current-temperature-value").innerHTML = Math.round(celsiousTemperature);
   document.querySelector(".current-temperature-value").innerText = Math.round(celsiousTemperature);
   forecastUnits = "metric";
   getForecast(coordinatesInfo);
@@ -161,7 +155,6 @@ let city = "New York";
 document.querySelector(".input-city").addEventListener("submit", handleSubmit);
 
 let timeNow = new Date();
-//document.querySelector(".current-day-time").innerHTML = formatDate(timeNow);
 document.querySelector(".current-day-time").innerText = formatDate(timeNow);
 
 let apiKey = "ca47e9200d90350ad07692b8ce034ca3";
