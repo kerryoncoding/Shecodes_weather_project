@@ -118,6 +118,9 @@ function displayForecast(response) {
 
   futureDates.forEach(function(futureDay, index) {
     if (index < 5) { 
+      // ** added conditional here ** //
+      if ((typeof(futureDay.dt) === "number") && (typeof(futureDay.temp.max) === "number") && (typeof(futureDay.temp.min) === "number"))  {
+
       forecastHTML = forecastHTML +
            `<div class="col-2 card-spacing">
               <div class="card" style="width: 7rem">
@@ -134,11 +137,12 @@ function displayForecast(response) {
               </div>
             </div>`;
     }
+    }
   })
-  
+
+
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-//need to update here ******^^^^^^^^^^******
 
 }
 
